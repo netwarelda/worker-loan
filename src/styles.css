@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* Optional theme tweaks */
+@theme {
+  --color-primary: theme(colors.emerald.500);
+  --font-sans: "Inter", sans-serif;
+}
+
+/* You can also add custom utilities right here */
