@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# Worker Loans Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack application for managing worker information and loan payments. Built with React frontend and Express/MongoDB backend.
+
+## Features
+
+- Worker management (add, edit, view workers)
+- Loan tracking and payment processing
+- Reporting and analytics
+- Responsive UI with Tailwind CSS
+
+## Tech Stack
+
+- **Frontend**: React 19.1.0, Tailwind CSS, React Router DOM
+- **Backend**: Express 5.1.0, MongoDB with Mongoose 8.16.3
+- **Development**: Create React App
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB (running locally or cloud instance)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/netwarelda/worker-loan.git
+cd worker-loan
+```
+
+2. Install frontend dependencies:
+```bash
+npm install
+```
+
+3. Install backend dependencies:
+```bash
+cd backend
+npm install
+cd ..
+```
+
+4. Set up environment variables:
+
+Create a `backend/.env` file:
+```
+MONGO_URI=your_mongodb_connection_string
+PORT=5001
+```
+
+**Note**: Port 5001 is used to avoid conflicts with macOS Control Center on port 5000.
+
+### Running the Application
+
+1. **Start MongoDB** (if running locally)
+
+2. **Start the backend server**:
+```bash
+cd backend
+node server.js
+```
+
+3. **Start the frontend** (in a new terminal):
+```bash
+npm start
+```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
 ## Available Scripts
 
-In the project directory, you can run:
+### Frontend
 
-### `npm start`
+- `npm start` - Runs the app in development mode
+- `npm test` - Launches the test runner
+- `npm run build` - Builds the app for production
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Backend
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- `node server.js` - Starts the Express server
+- For development with auto-reload:
+  ```bash
+  npm install -D nodemon
+  npx nodemon server.js
+  ```
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+/
+├── src/
+│   ├── components/         # Reusable UI components
+│   ├── pages/             # Route-based page components
+│   └── App.js             # Main app with routing
+└── backend/
+    ├── models/            # Mongoose schemas
+    ├── routes/            # API endpoints
+    └── server.js          # Express server configuration
+```
 
-### `npm run build`
+## API Endpoints
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `GET /api/workers` - Get all workers
+- `POST /api/workers` - Create new worker
+- `PUT /api/workers/:id` - Update worker
+- `DELETE /api/workers/:id` - Delete worker
+- `POST /api/workers/:id/payment` - Process loan payment
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Contributing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### `npm run eject`
+## License
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is open source and available under the MIT License.
