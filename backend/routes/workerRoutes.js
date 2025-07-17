@@ -59,6 +59,10 @@ router.post('/:id/payments', async (req, res) => {
     const worker = await Worker.findById(req.params.id);
     if (!worker) return res.status(404).json({ message: 'Worker not found' });
 
+    if (typeof amount !== 'number' || amount <= 0) {
+      return res.status(400).json({ message: 'Invalid payment amount' });
+    }
+
     // Update balance and payment info
     worker.currentBalance -= amount;
     worker.lastPayment = amount;
